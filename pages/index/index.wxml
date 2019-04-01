@@ -1,0 +1,61 @@
+<!-- index.wxml
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+<view>
+    <view class='header'>
+        <input type='text' class='search' value='搜索目的地/交通/景点/酒店'></input>
+    </view>
+    <view class='lunbo'>
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular='{{circular}}'>
+            <block wx:for="{{imgUrls}}" wx:key="*this">
+                <swiper-item>
+                    <image src="{{item}}" class="slide-image" />
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class='container'>
+        <view class='categoryHeader clearfix'>
+            <view class='categoryHeader_item' wx:for="{{iconHeaderArray}}" wx:key="*this">
+                <view class='categoryHeader_item_warp'>
+                    <image src='{{item.iconUrl}}'></image>
+                </view>
+                <text>{{item.iconText}}</text>
+            </view>
+        </view>
+        <view class='categoryMid clearfix'>
+            <view class='categoryMid_item' wx:for="{{iconMidArray}}" wx:key="*this">
+                <view class='categoryMid_item_warp'>
+                    <image src='{{item.iconUrl}}'></image>
+                </view>
+            </view>
+        </view>
+        <view class='categoryFooter clearfix'>
+            <view class='categoryFooter_item' wx:for="{{iconFooterArray}}" wx:key="*this">
+                <view class='categoryFooter_item_warp'>
+                    <image src='{{item.iconUrl}}'></image>
+                </view>
+                <text>{{item.iconText}}</text>
+            </view>
+        </view>
+        <view class='chaozhitehui'>
+            <text>超值特惠</text>
+            <view class='chaozhitehui_item' wx:for="{{iconTehuiArray}}" wx:key="*this">
+                <view class='chaozhitehui_item_warp'>
+                    <image src='{{item.iconUrl}}'></image>
+                </view>
+            </view>
+        </view>
+
+    </view>
+</view>
